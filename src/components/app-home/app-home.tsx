@@ -1,11 +1,35 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Component, h, Host } from '@stencil/core';
 
+export interface Food {
+  id: string;
+  name: string;
+  serial: string;
+}
+
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.css'
 })
 export class AppHome {
+  private foods: Food[] = [
+    {
+      id: '1',
+      name: 'apple',
+      serial: '101'
+    },
+    {
+      id: '2',
+      name: 'banana',
+      serial: '101'
+    },
+    {
+      id: '3',
+      name: 'apple',
+      serial: '102'
+    }
+  ];
+
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   render() {
     return (
@@ -15,18 +39,51 @@ export class AppHome {
             <ion-title>Home</ion-title>
           </ion-toolbar>
         </ion-header>
-        <ion-content class="ion-padding">
-          <p>
-            Welcome to the PWA Toolkit. You can use this starter to build entire
-            apps with web components using Stencil and ionic/core! Check out the
-            README for everything that comes in this starter out of the box and
-            check out our docs on{' '}
-            <a href="https://stenciljs.com">stenciljs.com</a> to get started.
-          </p>
 
+        <ion-content class="ion-padding">
           <ion-button href="/profile/ionic" expand="block">
             Profile page
           </ion-button>
+
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title> Title</ion-card-title>
+              <ion-card-subtitle>Sub title</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>content</ion-card-content>
+          </ion-card>
+
+          {this.foods.map(x => (
+            <ion-item>
+              <ion-icon name="pin" slot="start"></ion-icon>
+              <ion-label>{x.name} in a card</ion-label>
+              <ion-button
+                fill="outline"
+                slot="end"
+                href={`/profile/${[x.name, x.serial].join('-')}`}
+                routerDirection="forward"
+              >
+                View
+              </ion-button>
+            </ion-item>
+          ))}
+
+          {this.foods.map(x => (
+            <ion-card>
+              <ion-item>
+                <ion-icon name="pin" slot="start"></ion-icon>
+                <ion-label>{x.name} in a card</ion-label>
+                <ion-button
+                  fill="outline"
+                  slot="end"
+                  href={`/profile/${[x.name, x.serial].join('-')}`}
+                  routerDirection="forward"
+                >
+                  View
+                </ion-button>
+              </ion-item>
+            </ion-card>
+          ))}
         </ion-content>
       </Host>
     );
