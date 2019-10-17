@@ -1,11 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Component, h, Host } from '@stencil/core';
-
-export interface Food {
-  id: string;
-  name: string;
-  serial: string;
-}
+import { Food } from '../../interfaces/food';
 
 @Component({
   tag: 'app-home',
