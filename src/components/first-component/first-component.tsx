@@ -6,11 +6,12 @@ import { Component, ComponentInterface, Host, Prop, State, h } from '@stencil/co
   shadow: true
 })
 export class FirstComponent implements ComponentInterface {
-  @Prop({mutable: true}) text: string = 'ボタン';
+  /** text is property */
+  @Prop() text: string = 'ボタン';
 
   @State() checked: boolean = false;
 
-  toggleChecked() {
+  private toggleChecked = () => {
     this.checked = !this.checked;
   }
 
@@ -18,8 +19,8 @@ export class FirstComponent implements ComponentInterface {
     return (
       <Host>
         <button
-          onClick={()=> this.toggleChecked() }
-          class={(this.checked && "checked")}>
+          onClick={this.toggleChecked}
+          class={(this.checked && 'checked')}>
           {this.text}
         </button>
       </Host>
