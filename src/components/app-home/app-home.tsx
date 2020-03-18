@@ -36,33 +36,6 @@ export class AppHome {
         </ion-header>
 
         <ion-content class="ion-padding">
-          <ion-button href="/profile/ionic" expand="block">
-            Profile page
-          </ion-button>
-
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title> Title</ion-card-title>
-              <ion-card-subtitle>Sub title</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>content</ion-card-content>
-          </ion-card>
-
-          {this.foods.map(x => (
-            <ion-item>
-              <ion-icon name="pin" slot="start"></ion-icon>
-              <ion-label>{x.name} in a card</ion-label>
-              <ion-button
-                fill="outline"
-                slot="end"
-                href={`/profile/${[x.name, x.serial].join('-')}`}
-                routerDirection="forward"
-              >
-                View
-              </ion-button>
-            </ion-item>
-          ))}
-
           {this.foods.map(x => (
             <ion-card>
               <ion-item>
