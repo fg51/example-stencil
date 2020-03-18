@@ -1,6 +1,6 @@
 {
-  "name": "sample3",
-  "short_name": "sample3",
+  "name": "example-stencil",
+  "short_name": "example-stencil",
   "start_url": "/",
   "display": "standalone",
   "icons": [{
