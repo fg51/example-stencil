@@ -4,5 +4,9 @@
   },
   "extends": [
     "plugin:@stencil/recommended"
-  ]
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }
