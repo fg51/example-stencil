@@ -1,4 +1,11 @@
-import { Component, ComponentInterface, Host, Prop, State, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Host,
+  Prop,
+  State,
+  h
+} from '@stencil/core';
 
 @Component({
   tag: 'first-component',
@@ -13,18 +20,15 @@ export class FirstComponent implements ComponentInterface {
 
   private toggleChecked = () => {
     this.checked = !this.checked;
-  }
+  };
 
   render() {
     return (
       <Host>
-        <button
-          onClick={this.toggleChecked}
-          class={(this.checked && 'checked')}>
+        <button onClick={this.toggleChecked} class={this.checked && 'checked'}>
           {this.text}
         </button>
       </Host>
     );
   }
-
 }
